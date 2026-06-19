@@ -321,18 +321,25 @@ main {
 /* Contact */
 .contact-card { text-align: center; }
 
-.book-cta {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    margin: 1.5rem 0;
+/* Match the contact card to the Calendly embed's themed background (#141414)
+   so the calendar blends in seamlessly with no contrasting band. */
+.contact-card.featured {
+    background: var(--surface);
+}
+
+.cal-embed {
+    width: 100%;
+    min-height: 580px;
+    margin: 1.25rem 0 0.5rem;
+    overflow: hidden;
 }
 
 .book-or {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     color: var(--text-muted);
     font-style: italic;
+    margin: 1.25rem 0;
+    text-align: center;
 }
 
 .contact-form {
