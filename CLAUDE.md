@@ -55,6 +55,19 @@ write `.og-template.html` (1200×630), then
 - Pushing to `master` ships to production via Vercel, so treat merges as deploys.
 - **Never commit secrets.** `RESEND_API_KEY` lives only in Vercel env vars.
 
-## Known TODO / ideas
-- Analytics not yet added (`tracking.js` has `data-cta` hooks ready for GA4/Plausible).
-- Submit to Google Search Console.
+## Next session focus: SEO push
+The user's stated next priority is SEO. Planned scope (refine with them first):
+- **Google Search Console** — verify ownership, submit `sitemap.xml`, check coverage.
+- **Analytics** — add GA4 or Plausible (decide which); `tracking.js` already has
+  `data-cta` hooks + UTM capture ready to wire to events. Needed to measure SEO/ads.
+- **Keyword & on-page** — target terms (e.g. "AI consultant", "custom software
+  developer", "fractional engineer"); tune headings, copy, internal anchors, alt text.
+- **Content/IA** — consider a resources/blog section for ranking long-tail queries.
+- **Technical SEO** — Lighthouse/Core Web Vitals pass; add FAQ/Service structured data.
+
+## Open items (housekeeping)
+- **`www.softwarejoe.com` SSL** — cert was still not issued ~20 min after DNS setup
+  (apex works fine). If still broken, in Vercel → Settings → Domains remove & re-add
+  `www` to retrigger the cert.
+- **Rotate `RESEND_API_KEY`** — the key was shared in a chat transcript; regenerate a
+  send-only key in Resend, update the Vercel env var (Production), redeploy.
