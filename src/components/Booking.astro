@@ -1,0 +1,48 @@
+---
+// Booking section: Cal.com embed + contact form + the scripts that power them.
+// Drop <Booking /> onto any page that should convert.
+---
+<section id="book" class="section">
+  <div class="card featured contact-card">
+    <div class="card-label">Let's talk</div>
+    <h2>Ready to build something that works?</h2>
+    <p>Book a free consultation, or send a message and I'll get back to you fast. No pressure, no jargon — just a straight conversation about what's possible.</p>
+
+    <!-- Cal.com inline embed (softwarejoe/30min), themed dark with the site's green brand color. -->
+    <div class="cal-embed" id="cal-inline"></div>
+    <p class="book-or">Prefer to talk first? Send a message below.</p>
+
+    <!-- Contact form: posts to /api/contact (Vercel serverless fn → Resend). -->
+    <form class="contact-form" id="contact-form" action="/api/contact" method="POST">
+      <input type="text" name="name" class="form-input" placeholder="Your name" required />
+      <input type="email" name="email" class="form-input" placeholder="Email" required />
+      <input type="text" name="company" class="form-input" placeholder="Company (optional)" />
+      <textarea name="message" class="form-input" rows="4" placeholder="What would you like help with?" required></textarea>
+      <!-- Honeypot: hidden from humans, catches spam bots. -->
+      <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+      <button type="submit" class="cta-button full">Send message</button>
+      <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+    </form>
+
+    <p class="contact-email">Prefer email? <a href="mailto:joe@softwarejoe.com" data-cta="email">joe@softwarejoe.com</a></p>
+  </div>
+</section>
+
+<!-- Cal.com inline embed loader -->
+<script type="text/javascript" is:inline>
+  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+  Cal("init", "30min", { origin: "https://app.cal.com" });
+  Cal.ns["30min"]("inline", {
+    elementOrSelector: "#cal-inline",
+    config: { layout: "month_view" },
+    calLink: "softwarejoe/30min"
+  });
+  Cal.ns["30min"]("ui", {
+    theme: "dark",
+    cssVarsPerTheme: { dark: { "cal-brand": "#4ade80" } },
+    hideEventTypeDetails: false,
+    layout: "month_view"
+  });
+</script>
+<script src="/tracking.js" is:inline></script>
+<script src="/form.js" is:inline></script>

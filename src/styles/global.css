@@ -221,6 +221,45 @@ main {
     margin: 0 auto;
 }
 
+/* Long-form prose (service / blog pages) */
+.page {
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.page h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 2.5rem 0 0.75rem;
+}
+
+.page > h2:first-child,
+.page > .section-head:first-child { margin-top: 0; }
+
+.page h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin: 1.5rem 0 0.5rem;
+}
+
+.page p {
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+.page a { color: var(--accent); text-decoration: none; }
+.page a:hover { text-decoration: underline; }
+.page strong { color: var(--text); font-weight: 600; }
+
+.faq-item {
+    border-top: 1px solid var(--border);
+    padding: 1.1rem 0;
+}
+
+.faq-item h3 { margin: 0 0 0.4rem; }
+.faq-item p { margin: 0; }
+
 /* Cards */
 .card {
     background: var(--surface);
@@ -256,6 +295,9 @@ main {
     margin-bottom: 0.75rem;
     font-size: 0.95rem;
 }
+
+.card p a { color: var(--accent); text-decoration: none; }
+.card p a:hover { text-decoration: underline; }
 
 .service-list {
     display: grid;

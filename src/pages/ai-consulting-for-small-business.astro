@@ -1,0 +1,171 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Booking from '../components/Booking.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'AI Consulting for Small Business | Software Joe';
+const description =
+  'Practical, ROI-first AI consulting for small businesses. Find where AI actually saves time and money — skip the hype. Book a free consultation with Software Joe.';
+
+const faqs = [
+  {
+    q: 'What does an AI consultant for a small business do?',
+    a: 'An AI consultant helps you find where artificial intelligence can save time or money in your business, then helps you act on it — auditing your workflows, ranking the highest-ROI opportunities, recommending the right tools, and (in my case) building the solution if you want it done for you.'
+  },
+  {
+    q: 'How much does AI consulting cost for a small business?',
+    a: 'It depends on scope, but it starts with a free 30-minute consultation. From there, most small businesses begin with a focused strategy engagement (a fixed, scoped fee) before any build work — so you know the ROI case before you spend on implementation.'
+  },
+  {
+    q: 'Is AI worth it for a small business?',
+    a: 'Often yes — but only for the right tasks. AI pays off fastest on repetitive, time-draining work (data entry, support triage, drafting, lookups). It is a poor fit for vague "let\'s add AI" projects with no measurable outcome. Good consulting is mostly about telling you where it is — and is not — worth it.'
+  },
+  {
+    q: 'How do I start using AI in my business?',
+    a: 'Start with one painful, repetitive process — not a grand plan. Identify the task, confirm AI can do it reliably, pilot it on a small scale, measure the time or cost saved, then expand. A consultation gives you a prioritized shortlist so you start with the highest-payoff, lowest-risk option.'
+  },
+  {
+    q: 'Do you work with businesses remotely and in Ventura County?',
+    a: 'Both. I work with small businesses remotely across the US, and locally in Ventura County — Oxnard, Ventura, and the surrounding area — where we can meet in person if that\'s easier.'
+  }
+];
+---
+
+<BaseLayout title={title} description={description}>
+  <script type="application/ld+json" slot="head" is:inline set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "AI Consulting for Small Business",
+    "provider": {
+      "@type": "ProfessionalService",
+      "name": "Software Joe",
+      "url": "https://softwarejoe.com"
+    },
+    "areaServed": ["United States", "Ventura County, California"],
+    "description": description,
+    "url": "https://softwarejoe.com/ai-consulting-for-small-business/"
+  })} />
+  <script type="application/ld+json" slot="head" is:inline set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map((f) => ({
+      "@type": "Question",
+      "name": f.q,
+      "acceptedAnswer": { "@type": "Answer", "text": f.a }
+    }))
+  })} />
+
+  <Nav />
+
+  <main id="top">
+    <header class="hero">
+      <div class="eyebrow">AI Consulting</div>
+      <h1>AI Consulting for <span class="accent">Small Business</span></h1>
+      <p class="subtitle">
+        Practical, ROI-first AI consulting for small businesses. I help you find exactly where
+        AI saves time and money in your business — and skip the expensive hype that doesn't.
+      </p>
+      <div class="hero-cta">
+        <a href="#book" class="cta-button" data-cta="aiconsult_hero_book">Book a free consultation</a>
+        <a href="/#services" class="cta-secondary" data-cta="aiconsult_services">See all services &rarr;</a>
+      </div>
+    </header>
+
+    <section class="value-grid">
+      <div class="value-card">
+        <div class="value-icon">&#9889;</div>
+        <h3>Save time</h3>
+        <p>Put the repetitive, manual work — data entry, triage, drafting, lookups — on autopilot so your team gets their hours back.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">&#9881;</div>
+        <h3>Cut cost</h3>
+        <p>Spend on the AI that earns its keep and avoid the shiny tools that don't. Every recommendation is tied to a real number.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">&#128200;</div>
+        <h3>Grow without hiring</h3>
+        <p>Handle more customers, orders, and output with the team you already have — by removing the bottlenecks AI is genuinely good at.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="page">
+        <h2>What you get from AI consulting</h2>
+        <p>
+          Most small businesses don't need "an AI strategy" — they need to know which one or two
+          things AI can fix that are actually costing them time or money. That's what this is.
+          As an <strong>AI consultant for small business</strong> owners, I focus on outcomes you can
+          measure, not buzzwords. A typical engagement includes:
+        </p>
+        <ul class="feature-list">
+          <li>A plain-English audit of your workflows and biggest time sinks</li>
+          <li>AI opportunities ranked by real ROI — what to do first, and what to skip</li>
+          <li>Straight tool recommendations (no vendor kickbacks, no hype)</li>
+          <li>A clear action plan you can run yourself — or have me build</li>
+        </ul>
+
+        <h2>Who it's for</h2>
+        <p>
+          This is built for <strong>small businesses, founders, and local service businesses</strong>
+          that keep hearing they "should be using AI" but don't want to gamble on a six-figure project
+          to find out. If you've got a repetitive process eating your team's day, you're the right fit.
+          I work remotely across the US and in person locally in <strong>Ventura County</strong> —
+          Oxnard, Ventura, and the surrounding area.
+        </p>
+
+        <h2>Why work with me</h2>
+        <p>
+          I'm Joe — a senior software engineer, not a reseller. That means I can tell you when AI is
+          the wrong tool (often), and when it's a genuine edge. And because I actually
+          <a href="/#services">build custom software and AI tools</a>, I don't just hand you a slide deck:
+          I can implement the solution and hand it off working. Software-first, AI where it gives you a real edge.
+        </p>
+      </div>
+    </section>
+
+    <section id="process" class="section">
+      <div class="section-head">
+        <div class="card-label">How it works</div>
+        <h2>Simple, fast, no fluff.</h2>
+      </div>
+      <div class="process-grid">
+        <div class="process-step">
+          <div class="step-num">01</div>
+          <h3>Book a call</h3>
+          <p>Tell me what's slow, manual, or expensive. We figure out if AI can actually help.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-num">02</div>
+          <h3>Get a plan</h3>
+          <p>You get a prioritized, ROI-ranked roadmap — the highest-payoff moves first.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-num">03</div>
+          <h3>Ship &amp; profit</h3>
+          <p>I build it (or guide your team), and you start seeing time and money saved.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="page">
+        <div class="section-head" style="text-align:left;">
+          <div class="card-label">FAQ</div>
+          <h2>AI consulting questions, answered</h2>
+        </div>
+        {faqs.map((f) => (
+          <div class="faq-item">
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <Booking />
+  </main>
+
+  <Footer />
+</BaseLayout>
