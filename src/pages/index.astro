@@ -1,0 +1,221 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Software Joe — Custom Software & AI Solutions for Business';
+const description =
+  'Senior software engineer building custom software and AI solutions that make businesses faster, leaner, and more profitable. Book a free consultation.';
+---
+
+<BaseLayout title={title} description={description}>
+  <script type="application/ld+json" slot="head" is:inline set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Software Joe",
+    "description": "Custom software and AI solutions that make businesses faster, leaner, and more profitable.",
+    "url": "https://softwarejoe.com",
+    "image": "https://softwarejoe.com/og-image.png",
+    "email": "joe@softwarejoe.com",
+    "areaServed": "Worldwide",
+    "priceRange": "$$",
+    "founder": {
+      "@type": "Person",
+      "name": "Joe Fernandez",
+      "alternateName": "Software Joe",
+      "jobTitle": "Senior Software Engineer & Consultant",
+      "sameAs": ["https://x.com/CryptLFG", "https://linkedin.com/in/jfernandez1988"]
+    },
+    "knowsAbout": ["Software Development", "Custom Software", "Web Applications", "Workflow Automation", "Systems Integration", "Artificial Intelligence", "AI Agents", "Business Productivity"],
+    "makesOffer": [
+      { "@type": "Offer", "name": "Software & AI Strategy Consultation" },
+      { "@type": "Offer", "name": "Custom Software & AI Builds" },
+      { "@type": "Offer", "name": "Systems & Products" }
+    ]
+  })} />
+
+  <!-- Top Bar -->
+  <nav class="nav">
+    <a href="#top" class="brand">Software<span class="brand-accent">Joe</span></a>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#process">How it works</a>
+      <a href="#book" class="nav-cta" data-cta="nav_book">Book a call</a>
+    </div>
+  </nav>
+
+  <main id="top">
+    <!-- Hero -->
+    <header class="hero">
+      <div class="eyebrow">Software that moves your business</div>
+      <h1>I build software that makes your business <span class="accent">faster, leaner, and more profitable</span> — with AI where it gives you an edge.</h1>
+      <p class="subtitle">
+        I'm Joe — a senior software engineer. I build the right solution for the problem:
+        well-built, dependable software, with AI layered in when it gives you a real edge.
+        For founders, small businesses, and enterprises alike.
+      </p>
+      <div class="hero-cta">
+        <a href="#book" class="cta-button" data-cta="hero_book">Book a free consultation</a>
+        <a href="#services" class="cta-secondary" data-cta="hero_services">See how I help &rarr;</a>
+      </div>
+      <div class="trust-row">
+        <span>Trusted approach for:</span>
+        <span class="chip">Solo founders</span>
+        <span class="chip">Small business</span>
+        <span class="chip">Mid-market</span>
+        <span class="chip">Enterprise</span>
+      </div>
+    </header>
+
+    <!-- Value Props -->
+    <section class="value-grid">
+      <div class="value-card">
+        <div class="value-icon">&#9889;</div>
+        <h3>More productive</h3>
+        <p>Kill the busywork and the bottlenecks. Custom tools and automation — AI-powered when it helps — that hand your team their time back.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">&#9881;</div>
+        <h3>More efficient</h3>
+        <p>Cut cost and friction. Better software, tighter workflows, and the right systems — so your team ships more with less.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">&#128200;</div>
+        <h3>More profitable</h3>
+        <p>Technology tied to the bottom line — not a science project. Every build maps to a real outcome you can measure.</p>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="section">
+      <div class="section-head">
+        <div class="card-label">What I offer</div>
+        <h2>Start with a conversation. Scale into a system.</h2>
+        <p class="section-sub">Most engagements start with a consultation, then grow into hands-on builds and repeatable systems.</p>
+      </div>
+
+      <div class="service-list">
+        <div class="card featured">
+          <div class="card-label">Step 1 &middot; Start here</div>
+          <h2>Strategy Consultation</h2>
+          <p>A focused session to find where better software — and AI, where it fits — actually pays off in your business. You leave with a clear, prioritized action plan.</p>
+          <ul class="feature-list">
+            <li>Audit of your workflows &amp; biggest time sinks</li>
+            <li>Opportunities ranked by real ROI</li>
+            <li>Straight tech recommendations (no vendor fluff)</li>
+            <li>A plan you can act on with or without me</li>
+          </ul>
+          <a href="#book" class="cta-button" data-cta="services_book">Book a free consultation</a>
+        </div>
+
+        <div class="card">
+          <div class="card-label">Step 2 &middot; Build</div>
+          <h2>Custom Software &amp; AI</h2>
+          <p>I build the thing. Web apps, internal tools, automations, integrations — and AI features layered in when they earn their place.</p>
+          <ul class="feature-list">
+            <li>Web &amp; internal apps, dashboards, tools</li>
+            <li>Workflow automation &amp; integrations</li>
+            <li>AI agents, assistants &amp; data pipelines</li>
+            <li>Built right, documented, and handed off</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-label">Step 3 &middot; Scale</div>
+          <h2>Systems &amp; Products</h2>
+          <p>Repeatable systems and productized tools so the gains compound — not just a one-off win that fades.</p>
+          <ul class="feature-list">
+            <li>Reusable playbooks &amp; templates</li>
+            <li>Team training &amp; enablement</li>
+            <li>Ongoing optimization &amp; support</li>
+            <li>Productized tools for your niche</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section id="process" class="section">
+      <div class="section-head">
+        <div class="card-label">How it works</div>
+        <h2>Simple, fast, no fluff.</h2>
+      </div>
+      <div class="process-grid">
+        <div class="process-step">
+          <div class="step-num">01</div>
+          <h3>Book a call</h3>
+          <p>Tell me what's slow, manual, or expensive. We figure out the right way to fix it.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-num">02</div>
+          <h3>Get a plan</h3>
+          <p>You get a clear, prioritized roadmap — the highest-ROI moves first.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-num">03</div>
+          <h3>Ship &amp; profit</h3>
+          <p>I build it (or guide your team), and you start seeing the results.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact / Book -->
+    <section id="book" class="section">
+      <div class="card featured contact-card">
+        <div class="card-label">Let's talk</div>
+        <h2>Ready to build something that works?</h2>
+        <p>Book a free consultation, or send a message and I'll get back to you fast. No pressure, no jargon — just a straight conversation about what's possible.</p>
+
+        <!-- Cal.com inline embed (softwarejoe/30min), themed dark with the site's green brand color. -->
+        <div class="cal-embed" id="cal-inline"></div>
+        <p class="book-or">Prefer to talk first? Send a message below.</p>
+
+        <!-- Contact form: posts to /api/contact (Vercel serverless fn → Resend). -->
+        <form class="contact-form" id="contact-form" action="/api/contact" method="POST">
+          <input type="text" name="name" class="form-input" placeholder="Your name" required />
+          <input type="email" name="email" class="form-input" placeholder="Email" required />
+          <input type="text" name="company" class="form-input" placeholder="Company (optional)" />
+          <textarea name="message" class="form-input" rows="4" placeholder="What would you like help with?" required></textarea>
+          <!-- Honeypot: hidden from humans, catches spam bots. -->
+          <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <button type="submit" class="cta-button full">Send message</button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+
+        <p class="contact-email">Prefer email? <a href="mailto:joe@softwarejoe.com" data-cta="email">joe@softwarejoe.com</a></p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <p>softwarejoe.com &mdash; custom software &amp; AI by Joe</p>
+      <div class="social-icons">
+        <a href="https://x.com/CryptLFG" target="_blank" rel="noopener" title="X / Twitter">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a href="https://linkedin.com/in/jfernandez1988" target="_blank" rel="noopener" title="LinkedIn">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cal.com inline embed loader -->
+  <script type="text/javascript" is:inline>
+    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+    Cal("init", "30min", { origin: "https://app.cal.com" });
+    Cal.ns["30min"]("inline", {
+      elementOrSelector: "#cal-inline",
+      config: { layout: "month_view" },
+      calLink: "softwarejoe/30min"
+    });
+    Cal.ns["30min"]("ui", {
+      theme: "dark",
+      cssVarsPerTheme: { dark: { "cal-brand": "#4ade80" } },
+      hideEventTypeDetails: false,
+      layout: "month_view"
+    });
+  </script>
+  <script src="/tracking.js" is:inline></script>
+  <script src="/form.js" is:inline></script>
+</BaseLayout>

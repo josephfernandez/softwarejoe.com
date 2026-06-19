@@ -1,0 +1,18 @@
+# build output
+dist/
+.astro/
+
+# dependencies
+node_modules/
+
+# vercel
+.vercel/
+
+# claude local settings (personal, not committed)
+.claude/settings.local.json
+
+# env / logs / os
+.env
+.env.production
+*.log
+.DS_Store

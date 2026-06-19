@@ -25,7 +25,7 @@
             body: JSON.stringify(data)
         }).then(function (r) {
             if (!r.ok) throw new Error('request failed');
-            window.location.href = '/thanks.html';
+            window.location.href = '/thanks/';
         }).catch(function () {
             btn.disabled = false;
             btn.textContent = label;

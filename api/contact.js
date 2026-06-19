@@ -2,7 +2,7 @@
 // Uses Resend (https://resend.com) for delivery. Set RESEND_API_KEY in Vercel
 // project env vars, and verify the softwarejoe.com domain in Resend so mail
 // can be sent from noreply@softwarejoe.com.
-module.exports = async (req, res) => {
+export default async function handler(req, res) {
     if (req.method !== 'POST') {
         res.setHeader('Allow', 'POST');
         return res.status(405).json({ error: 'Method not allowed' });
@@ -71,4 +71,4 @@ module.exports = async (req, res) => {
         console.error(err);
         return res.status(500).json({ error: 'Unexpected error. Please email joe@softwarejoe.com.' });
     }
-};
+}
