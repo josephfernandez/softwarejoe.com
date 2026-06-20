@@ -1,0 +1,174 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Booking from '../components/Booking.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'Custom Software Development for Business | Software Joe';
+const description =
+  'Custom software development that fits your business exactly — web apps, internal tools, and automations built by a senior engineer. Book a free consultation.';
+
+const faqs = [
+  {
+    q: 'What is custom software development?',
+    a: 'Custom software development is building an application specifically for your business instead of forcing your processes into off-the-shelf tools. You get exactly the features you need — a web app, internal tool, automation, or integration — and you own it.'
+  },
+  {
+    q: 'Custom software vs off-the-shelf — which is right for my business?',
+    a: 'Off-the-shelf wins when a cheap, common tool already does the job. Custom wins when the tool is a bottleneck, you\'re paying per-seat for software you barely use, you\'re gluing five apps together with manual work, or your edge depends on doing something the market tools can\'t. A consultation will tell you honestly which side you\'re on.'
+  },
+  {
+    q: 'How much does custom software cost?',
+    a: 'It varies with scope, but every engagement starts with a free consultation and a fixed, scoped plan — so you see the cost and the ROI case before committing to a build. Small, focused tools cost far less than people expect; I scope to the smallest version that delivers the result.'
+  },
+  {
+    q: 'How long does it take to build custom software?',
+    a: 'A focused internal tool or automation can ship in weeks, not months. I start with the smallest useful version (an MVP), get it in your hands fast, then iterate — so you see value early instead of waiting on a giant launch.'
+  },
+  {
+    q: 'Do you build custom software for startups and small businesses?',
+    a: 'Yes — startups and small businesses are a core focus. I scope to your budget and stage, build lean, and hand off working software (with AI features where they genuinely help).'
+  },
+  {
+    q: 'Do you work remotely and in Ventura County?',
+    a: 'Both — remotely across the US, and in person locally in Ventura County (Oxnard, Ventura, and the surrounding area).'
+  }
+];
+---
+
+<BaseLayout title={title} description={description}>
+  <script type="application/ld+json" slot="head" is:inline set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Custom Software Development",
+    "provider": { "@type": "ProfessionalService", "name": "Software Joe", "url": "https://softwarejoe.com" },
+    "areaServed": ["United States", "Ventura County, California"],
+    "description": description,
+    "url": "https://softwarejoe.com/custom-software-development/"
+  })} />
+  <script type="application/ld+json" slot="head" is:inline set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map((f) => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } }))
+  })} />
+
+  <Nav />
+
+  <main id="top">
+    <header class="hero">
+      <div class="eyebrow">Custom Software</div>
+      <h1>Custom Software <span class="accent">Development</span></h1>
+      <p class="subtitle">
+        Custom software development that fits your business exactly — web apps, internal tools, and
+        automations built by a senior engineer, with AI layered in where it gives you a real edge.
+      </p>
+      <div class="hero-cta">
+        <a href="#book" class="cta-button" data-cta="customsw_hero_book">Book a free consultation</a>
+        <a href="/#services" class="cta-secondary" data-cta="customsw_services">See all services &rarr;</a>
+      </div>
+    </header>
+
+    <section class="value-grid">
+      <div class="value-card">
+        <div class="value-icon">&#129520;</div>
+        <h3>Fits exactly</h3>
+        <p>Software built around how you actually work — not your business bent to fit someone else's tool.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">&#9889;</div>
+        <h3>Kills manual work</h3>
+        <p>Replace the spreadsheets, copy-paste, and app-juggling with one tool that just does it.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">&#128081;</div>
+        <h3>You own it</h3>
+        <p>No per-seat fees forever, no vendor lock-in. It's your software, documented and handed off.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="page">
+        <h2>What custom software development gets you</h2>
+        <p>
+          Most businesses don't need more SaaS subscriptions — they need one thing built right.
+          <strong>Custom software development</strong> means an application made for your workflow:
+          the features you need, none of the bloat, and no monthly per-seat tax on tools you barely use.
+          As a senior engineer I build and hand off:
+        </p>
+        <ul class="feature-list">
+          <li>Web &amp; internal apps, dashboards, and admin tools</li>
+          <li>Workflow automation &amp; integrations between the systems you already use</li>
+          <li>AI features — agents, assistants, data pipelines — where they earn their place</li>
+          <li>MVPs for startups: the smallest version that proves value, fast</li>
+        </ul>
+
+        <h2>Custom software vs off-the-shelf</h2>
+        <p>
+          Off-the-shelf software is the right call when a cheap, common tool already does the job — and
+          I'll tell you when it does. <strong>Custom</strong> wins when the tool has become the bottleneck:
+          you're gluing five apps together by hand, paying for seats you don't use, or your edge depends on
+          doing something the market tools simply can't. Not sure which side you're on? That's exactly what the
+          <a href="/ai-consulting-for-small-business/">consultation</a> sorts out.
+        </p>
+
+        <h2>Who it's for</h2>
+        <p>
+          <strong>Startups, small businesses, and growing teams</strong> that have outgrown spreadsheets and
+          duct-taped tools. Whether you need a custom app, an internal tool, or automation that removes a daily
+          headache, I scope to your budget and stage. I work remotely across the US and in person in
+          <strong>Ventura County</strong> — Oxnard, Ventura, and nearby.
+        </p>
+
+        <h2>Why work with me</h2>
+        <p>
+          I'm Joe — a senior software engineer who builds, not just advises. You get dependable, well-built
+          software (with <a href="/ai-consulting-for-small-business/">AI where it gives you an edge</a>),
+          shipped lean and documented so it's truly yours. Software-first, no hype.
+        </p>
+      </div>
+    </section>
+
+    <section id="process" class="section">
+      <div class="section-head">
+        <div class="card-label">How it works</div>
+        <h2>Simple, fast, no fluff.</h2>
+      </div>
+      <div class="process-grid">
+        <div class="process-step">
+          <div class="step-num">01</div>
+          <h3>Book a call</h3>
+          <p>Tell me what's slow, manual, or expensive. We scope the smallest build that fixes it.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-num">02</div>
+          <h3>Get a plan</h3>
+          <p>A fixed, scoped plan with the cost and ROI up front — before any build work starts.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-num">03</div>
+          <h3>Ship &amp; profit</h3>
+          <p>I build it, get it in your hands fast, and hand it off working and documented.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="page">
+        <div class="section-head" style="text-align:left;">
+          <div class="card-label">FAQ</div>
+          <h2>Custom software questions, answered</h2>
+        </div>
+        {faqs.map((f) => (
+          <div class="faq-item">
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <Booking />
+  </main>
+
+  <Footer />
+</BaseLayout>
