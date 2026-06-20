@@ -1,0 +1,83 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Booking from '../components/Booking.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'About Software Joe — Senior Software Engineer';
+const description =
+  'Software Joe is Joe Fernandez — a senior software engineer who builds dependable custom software and AI for businesses, with AI layered in only where it earns its place.';
+---
+
+<BaseLayout title={title} description={description}>
+  <script type="application/ld+json" slot="head" is:inline set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Joe Fernandez",
+    "alternateName": "Software Joe",
+    "url": "https://softwarejoe.com/about/",
+    "jobTitle": "Senior Software Engineer & Consultant",
+    "knowsAbout": ["Software Development", "Custom Software", "Web Applications", "Artificial Intelligence", "AI Agents", "Workflow Automation", "Systems Integration"],
+    "sameAs": ["https://x.com/CryptLFG", "https://linkedin.com/in/jfernandez1988"],
+    "worksFor": { "@type": "Organization", "name": "Software Joe", "url": "https://softwarejoe.com" }
+  })} />
+
+  <Nav />
+
+  <main id="top">
+    <header class="hero">
+      <div class="eyebrow">About</div>
+      <h1>I'm Joe — the engineer <span class="accent">behind Software Joe.</span></h1>
+      <p class="subtitle">
+        A senior software engineer who builds dependable custom software and AI for businesses —
+        with AI layered in only where it earns its place. No hype, no jargon, no faceless agency.
+      </p>
+      <div class="hero-cta">
+        <a href="#book" class="cta-button" data-cta="about_hero_book">Book a free consultation</a>
+        <a href="/#services" class="cta-secondary" data-cta="about_services">See what I do &rarr;</a>
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="page">
+        <h2>Who I am</h2>
+        <p>
+          I'm Joe Fernandez — a <strong>senior software engineer</strong> who's spent years building and
+          shipping production software at scale, including at a leading tech company's AI organization.
+          Software Joe is how I bring that same engineering to founders, small businesses, and local
+          Ventura County companies: real, dependable software, built by the person you actually talk to.
+        </p>
+
+        <h2>What I believe about software (and AI)</h2>
+        <p>
+          I'm <strong>software-first</strong>. Most business problems are solved by well-built software,
+          and AI is a sharp edge to add <em>where it genuinely helps</em> — not a buzzword to bolt onto
+          everything. A lot of my value is telling you when AI is the wrong tool, which is more often than
+          the hype admits. The goal is always the same: make your business
+          <strong>faster, leaner, and more profitable</strong> with technology tied to a real outcome.
+        </p>
+
+        <h2>How I work</h2>
+        <p>
+          The engineer who scopes your project is the engineer who builds it — no handoffs to a junior team,
+          no offshore black box. I scope lean (the smallest version that delivers the result), quote a fixed
+          price up front, build it, and hand it off documented and yours. Honest advice first, even when it
+          means telling you to buy an off-the-shelf tool instead of hiring me.
+        </p>
+
+        <h2>Who I work with</h2>
+        <p>
+          Founders, startups, and small-to-mid-sized businesses — remotely across the US, and in person
+          locally in <a href="/software-developer-ventura-county/">Ventura County</a> (Oxnard, Ventura, and
+          nearby). Whether you need <a href="/custom-software-development/">custom software</a>,
+          <a href="/ai-consulting-for-small-business/">AI consulting</a>, or just a straight answer on what's
+          worth building, that's what I'm here for.
+        </p>
+      </div>
+    </section>
+
+    <Booking />
+  </main>
+
+  <Footer />
+</BaseLayout>
