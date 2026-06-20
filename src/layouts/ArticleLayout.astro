@@ -20,7 +20,7 @@ const fmt = (d: Date) =>
   d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 ---
 
-<BaseLayout title={`${title} | Software Joe`} description={description}>
+<BaseLayout title={`${title} | Software Joe`} description={description} image={`/og/${slug}.png`}>
   <script type="application/ld+json" slot="head" is:inline set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@type": "Article",
