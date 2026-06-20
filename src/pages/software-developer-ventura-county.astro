@@ -1,0 +1,129 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Booking from '../components/Booking.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'Software Developer & AI Consultant in Ventura County | Software Joe';
+const description =
+  'Local software developer and AI consultant serving Oxnard, Ventura & all of Ventura County. Custom software, automation, and AI for local businesses. Book a free consult.';
+
+const faqs = [
+  {
+    q: 'Are you a local software developer in Ventura County?',
+    a: 'Yes. I\'m based in the Oxnard/Ventura area and work with businesses across Ventura County — building custom software, automations, and AI tools. We can meet in person locally, or work remotely, whichever is easier for you.'
+  },
+  {
+    q: 'Which Ventura County areas do you serve?',
+    a: 'Oxnard and Ventura primarily, plus Camarillo, Thousand Oaks, Simi Valley, and the surrounding Ventura County area. I also work with clients remotely across the US.'
+  },
+  {
+    q: 'Do you work with small businesses in Oxnard and Ventura?',
+    a: 'Absolutely — local small businesses are a core focus. Whether you need a custom app, automation to kill manual work, or honest advice on where AI helps, I scope to your budget and stage.'
+  },
+  {
+    q: 'Can we meet in person?',
+    a: 'Yes — for Ventura County clients we can meet locally in the Oxnard/Ventura area. For everyone else, the same work happens smoothly over video.'
+  }
+];
+---
+
+<BaseLayout title={title} description={description}>
+  <script type="application/ld+json" slot="head" is:inline set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Software Joe — Software Developer & AI Consultant",
+    "description": description,
+    "url": "https://softwarejoe.com/software-developer-ventura-county/",
+    "email": "joe@softwarejoe.com",
+    "image": "https://softwarejoe.com/og-image.png",
+    "areaServed": [
+      { "@type": "City", "name": "Oxnard" },
+      { "@type": "City", "name": "Ventura" },
+      { "@type": "City", "name": "Camarillo" },
+      { "@type": "City", "name": "Thousand Oaks" },
+      { "@type": "City", "name": "Simi Valley" },
+      { "@type": "AdministrativeArea", "name": "Ventura County, California" }
+    ],
+    "knowsAbout": ["Custom Software Development", "AI Consulting", "Workflow Automation", "Web Applications"],
+    "founder": { "@type": "Person", "name": "Joe Fernandez", "alternateName": "Software Joe" }
+  })} />
+  <script type="application/ld+json" slot="head" is:inline set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map((f) => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } }))
+  })} />
+
+  <Nav />
+
+  <main id="top">
+    <header class="hero">
+      <div class="eyebrow">Ventura County, CA</div>
+      <h1>Software Developer &amp; AI Consultant in <span class="accent">Ventura County</span></h1>
+      <p class="subtitle">
+        A local software developer and AI consultant serving Oxnard, Ventura, and all of Ventura County.
+        I build custom software, automation, and AI for local businesses — and you can actually meet the
+        person doing the work.
+      </p>
+      <div class="hero-cta">
+        <a href="#book" class="cta-button" data-cta="local_hero_book">Book a free consultation</a>
+        <a href="/#services" class="cta-secondary" data-cta="local_services">See all services &rarr;</a>
+      </div>
+      <div class="trust-row">
+        <span>Serving:</span>
+        <span class="chip">Oxnard</span>
+        <span class="chip">Ventura</span>
+        <span class="chip">Camarillo</span>
+        <span class="chip">Thousand Oaks</span>
+        <span class="chip">Simi Valley</span>
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="page">
+        <h2>Local software &amp; AI help for Ventura County businesses</h2>
+        <p>
+          Most software developers you'll find online are a faceless agency three time zones away. I'm a
+          <strong>senior software developer and AI consultant based in the Oxnard/Ventura area</strong> —
+          so Ventura County businesses get someone local who can sit down with you, understand the actual
+          problem, and build the fix. Custom software, automation, and AI, with the option to meet in person.
+        </p>
+
+        <h2>What I help local businesses with</h2>
+        <ul class="feature-list">
+          <li><a href="/custom-software-development/">Custom software development</a> — web apps, internal tools, automations</li>
+          <li><a href="/ai-consulting-for-small-business/">AI consulting</a> — where AI actually saves your business time and money</li>
+          <li>Killing manual work — replace spreadsheets and copy-paste with tools that just run</li>
+          <li>Honest, vendor-neutral advice — build vs. buy, what's worth it, what isn't</li>
+        </ul>
+
+        <h2>Why work with someone local</h2>
+        <p>
+          You get a real person in your time zone who can meet face-to-face in
+          <strong>Oxnard, Ventura,</strong> or anywhere in Ventura County — not a ticket number. And because
+          I'm a senior engineer who builds (not just advises), the same person who scopes your project is the
+          one who ships it. Prefer remote? That works too — I serve clients across the US.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="page">
+        <div class="section-head" style="text-align:left;">
+          <div class="card-label">FAQ</div>
+          <h2>Local software developer questions</h2>
+        </div>
+        {faqs.map((f) => (
+          <div class="faq-item">
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <Booking />
+  </main>
+
+  <Footer />
+</BaseLayout>
