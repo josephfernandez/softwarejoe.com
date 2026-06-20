@@ -1,0 +1,71 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Booking from '../components/Booking.astro';
+import Footer from '../components/Footer.astro';
+
+export interface Props {
+  title: string;
+  description: string;
+  slug: string;
+  publishDate: Date;
+  updatedDate?: Date;
+  relatedHub?: string;
+  relatedHubLabel?: string;
+}
+
+const { title, description, slug, publishDate, updatedDate, relatedHub, relatedHubLabel } = Astro.props;
+const url = `https://softwarejoe.com/blog/${slug}/`;
+const fmt = (d: Date) =>
+  d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<BaseLayout title={`${title} | Software Joe`} description={description}>
+  <script type="application/ld+json" slot="head" is:inline set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": title,
+    "description": description,
+    "datePublished": publishDate.toISOString(),
+    "dateModified": (updatedDate ?? publishDate).toISOString(),
+    "author": { "@type": "Person", "name": "Joe Fernandez", "url": "https://softwarejoe.com" },
+    "publisher": { "@type": "Organization", "name": "Software Joe", "logo": { "@type": "ImageObject", "url": "https://softwarejoe.com/og-image.png" } },
+    "mainEntityOfPage": url,
+    "url": url
+  })} />
+  <script type="application/ld+json" slot="head" is:inline set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://softwarejoe.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://softwarejoe.com/blog/" },
+      { "@type": "ListItem", "position": 3, "name": title, "item": url }
+    ]
+  })} />
+
+  <Nav />
+
+  <main id="top">
+    <article class="section">
+      <div class="page">
+        <nav class="crumbs"><a href="/">Home</a> / <a href="/blog/">Blog</a></nav>
+        <h1 class="article-title">{title}</h1>
+        <p class="article-meta">By Joe Fernandez · {fmt(publishDate)}{updatedDate ? ` · Updated ${fmt(updatedDate)}` : ''}</p>
+        <div class="article-body">
+          <slot />
+        </div>
+
+        {relatedHub && (
+          <div class="article-cta card featured">
+            <p>Want this done for your business?</p>
+            <a href={relatedHub} class="cta-button" data-cta="article_hub">{relatedHubLabel ?? 'See how I can help'} &rarr;</a>
+          </div>
+        )}
+      </div>
+    </article>
+
+    <Booking />
+  </main>
+
+  <Footer />
+</BaseLayout>
