@@ -29,7 +29,7 @@ You should seriously consider building custom software when:
 
 If two or more of these are true, custom is worth pricing out.
 
-## The real cost comparison (it's not just price)
+## Build vs buy: the real cost comparison
 
 Most build-vs-buy math only compares sticker prices and gets the decision wrong. Weigh all four:
 
@@ -50,7 +50,7 @@ And start small. The fastest way to lose money on a build is to spec a giant sys
 
 "Should we build AI into it?" is really the same decision in disguise — buy the model, build the workflow around it. AI is genuinely useful for the repetitive, judgment-light tasks (drafting, triage, extraction, lookups) and a distraction everywhere else. The honest version of this lives in [AI consulting for small business](/ai-consulting-for-small-business/): figure out where it pays off *before* you build.
 
-## A 60-second decision checklist
+## Build vs buy software: a 60-second checklist
 
 - Is this a common, solved problem? → **Buy.**
 - Does a tool fit 90%+ of your need at a reasonable price? → **Buy.**
