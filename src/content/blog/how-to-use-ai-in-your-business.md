@@ -1,5 +1,5 @@
 ---
-title: "How to Use AI in Your Business (Without Wasting Money)"
+title: "How to Use AI in Your Business (No Hype)"
 description: "How to use AI in your business the practical way: start with one repetitive task, pilot it, measure the ROI, and skip the hype. A senior engineer's no-nonsense guide."
 focusKeyword: "how to use ai in your business"
 publishDate: 2026-06-20
