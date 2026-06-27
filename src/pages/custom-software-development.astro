@@ -1,8 +1,14 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Nav from '../components/Nav.astro';
 import Booking from '../components/Booking.astro';
 import Footer from '../components/Footer.astro';
+import RelatedReading from '../components/RelatedReading.astro';
+
+const clusterPosts = (await getCollection('blog'))
+  .filter((p) => !p.data.draft && p.data.relatedHub === '/custom-software-development/')
+  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
 
 const title = 'Custom Software Development for Business | Software Joe';
 const description =
@@ -166,6 +172,13 @@ const faqs = [
         ))}
       </div>
     </section>
+
+    <RelatedReading
+      posts={clusterPosts}
+      eyebrow="Guides"
+      heading="Custom software guides"
+      sub="Deciding whether to build, what it costs, and when it's worth it."
+    />
 
     <Booking />
   </main>

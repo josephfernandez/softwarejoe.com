@@ -1,0 +1,55 @@
+---
+// Internal-linking section: surfaces blog cluster articles from hub/landing pages
+// so Google can discover and crawl them (the "Graph Build Engine"). Reuses the
+// global .post-card / .section-head styles for visual consistency.
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  posts: CollectionEntry<'blog'>[];
+  heading?: string;
+  sub?: string;
+  eyebrow?: string;
+  showAll?: boolean;
+}
+
+const {
+  posts,
+  heading = 'Guides & resources',
+  sub,
+  eyebrow = 'Guides',
+  showAll = true,
+} = Astro.props;
+---
+
+{posts.length > 0 && (
+  <section class="section">
+    <div class="section-head">
+      <div class="card-label">{eyebrow}</div>
+      <h2>{heading}</h2>
+      {sub && <p class="section-sub">{sub}</p>}
+    </div>
+    <div class="page">
+      {posts.map((post) => (
+        <a class="post-card" href={`/blog/${post.id}/`}>
+          <h2>{post.data.title}</h2>
+          <p>{post.data.description}</p>
+          <span class="read-more">Read the guide &rarr;</span>
+        </a>
+      ))}
+      {showAll && (
+        <a class="post-card" href="/blog/">
+          <h2>All guides &rarr;</h2>
+          <p>Browse every article on custom software, automation, and AI for business.</p>
+        </a>
+      )}
+    </div>
+  </section>
+)}
+
+<style>
+  .read-more {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--accent);
+  }
+</style>

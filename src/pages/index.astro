@@ -1,8 +1,14 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import Booking from '../components/Booking.astro';
+import RelatedReading from '../components/RelatedReading.astro';
+
+const posts = (await getCollection('blog'))
+  .filter((p) => !p.data.draft)
+  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
 
 const title = 'Software Joe — Custom Software & AI Solutions for Business';
 const description =
@@ -151,6 +157,13 @@ const description =
         </div>
       </div>
     </section>
+
+    <!-- Guides & Resources (internal links to the blog cluster) -->
+    <RelatedReading
+      posts={posts}
+      heading="Guides &amp; resources"
+      sub="Practical, no-hype guides on custom software, automation, and AI for business."
+    />
 
     <!-- Contact / Book -->
     <Booking />

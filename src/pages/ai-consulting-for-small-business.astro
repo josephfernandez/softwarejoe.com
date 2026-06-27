@@ -1,8 +1,14 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Nav from '../components/Nav.astro';
 import Booking from '../components/Booking.astro';
 import Footer from '../components/Footer.astro';
+import RelatedReading from '../components/RelatedReading.astro';
+
+const clusterPosts = (await getCollection('blog'))
+  .filter((p) => !p.data.draft && p.data.relatedHub === '/ai-consulting-for-small-business/')
+  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
 
 const title = 'AI Consulting for Small Business | Software Joe';
 const description =
@@ -163,6 +169,13 @@ const faqs = [
         ))}
       </div>
     </section>
+
+    <RelatedReading
+      posts={clusterPosts}
+      eyebrow="Guides"
+      heading="AI for business guides"
+      sub="How to actually use AI in your business — and when a chatbot is (and isn't) worth it."
+    />
 
     <Booking />
   </main>

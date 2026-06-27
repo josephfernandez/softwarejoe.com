@@ -16,3 +16,7 @@ node_modules/
 .env.production
 *.log
 .DS_Store
+
+# Google service-account key (never commit)
+*-service-account.json
+gsc-key.json

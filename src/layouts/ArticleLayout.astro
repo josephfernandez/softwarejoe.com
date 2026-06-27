@@ -1,4 +1,5 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from './BaseLayout.astro';
 import Nav from '../components/Nav.astro';
 import Booking from '../components/Booking.astro';
@@ -16,6 +17,16 @@ export interface Props {
 
 const { title, description, slug, publishDate, updatedDate, relatedHub, relatedHubLabel } = Astro.props;
 const url = `https://softwarejoe.com/blog/${slug}/`;
+
+// Cross-link siblings: same cluster (relatedHub) first, then fill with the most
+// recent other posts. Keeps every article linked to 2+ others so Google can crawl
+// the whole cluster (the Graph Build Engine).
+const allPosts = (await getCollection('blog')).filter((p) => !p.data.draft && p.id !== slug);
+const sameCluster = allPosts.filter((p) => relatedHub && p.data.relatedHub === relatedHub);
+const fillers = allPosts
+  .filter((p) => !sameCluster.includes(p))
+  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+const related = [...sameCluster, ...fillers].slice(0, 3);
 const fmt = (d: Date) =>
   d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 ---
@@ -55,6 +66,17 @@ const fmt = (d: Date) =>
           <slot />
         </div>
 
+        {related.length > 0 && (
+          <aside class="related-reading">
+            <h2>Related reading</h2>
+            <ul>
+              {related.map((p) => (
+                <li><a href={`/blog/${p.id}/`}>{p.data.title}</a></li>
+              ))}
+            </ul>
+          </aside>
+        )}
+
         {relatedHub && (
           <div class="article-cta card featured">
             <p>Want this done for your business?</p>
@@ -69,3 +91,22 @@ const fmt = (d: Date) =>
 
   <Footer />
 </BaseLayout>
+
+<style>
+  .related-reading {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+  }
+  .related-reading h2 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+  }
+  .related-reading ul { list-style: none; padding: 0; margin: 0; }
+  .related-reading li { margin: 0.4rem 0; }
+  .related-reading a { color: var(--accent); text-decoration: none; }
+  .related-reading a:hover { text-decoration: underline; }
+</style>
