@@ -28,21 +28,49 @@
   </div>
 </section>
 
-<!-- Cal.com inline embed loader -->
+<!-- Cal.com inline embed loader — lazy: embed.js only downloads when the booking
+     section nears the viewport, so it stays off the critical path on page load
+     (big TBT/INP win on every page; visitors who never scroll to #book pay nothing). -->
 <script type="text/javascript" is:inline>
   (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
-  Cal("init", "30min", { origin: "https://app.cal.com" });
-  Cal.ns["30min"]("inline", {
-    elementOrSelector: "#cal-inline",
-    config: { layout: "month_view" },
-    calLink: "softwarejoe/30min"
-  });
-  Cal.ns["30min"]("ui", {
-    theme: "dark",
-    cssVarsPerTheme: { dark: { "cal-brand": "#4ade80" } },
-    hideEventTypeDetails: false,
-    layout: "month_view"
-  });
+
+  let calStarted = false;
+  function initCal() {
+    if (calStarted) return;
+    calStarted = true;
+    Cal("init", "30min", { origin: "https://app.cal.com" });
+    Cal.ns["30min"]("inline", {
+      elementOrSelector: "#cal-inline",
+      config: { layout: "month_view" },
+      calLink: "softwarejoe/30min"
+    });
+    Cal.ns["30min"]("ui", {
+      theme: "dark",
+      cssVarsPerTheme: { dark: { "cal-brand": "#4ade80" } },
+      hideEventTypeDetails: false,
+      layout: "month_view"
+    });
+  }
+
+  // Load Cal just before the booking section scrolls into view (or on a #book
+  // hash / "Book" click). Falls back to an immediate load if unsupported.
+  (function () {
+    const el = document.getElementById("cal-inline");
+    if (!el) return;
+    if (location.hash === "#book") return initCal();
+    if (!("IntersectionObserver" in window)) return initCal();
+    const obs = new IntersectionObserver(function (entries) {
+      if (entries.some(function (e) { return e.isIntersecting; })) {
+        initCal();
+        obs.disconnect();
+      }
+    }, { rootMargin: "600px" });
+    obs.observe(el);
+    document.addEventListener("click", function (e) {
+      const t = e.target.closest && e.target.closest('a[href$="#book"]');
+      if (t) initCal();
+    }, { passive: true });
+  })();
 </script>
-<script src="/tracking.js" is:inline></script>
-<script src="/form.js" is:inline></script>
+<script src="/tracking.js" is:inline defer></script>
+<script src="/form.js" is:inline defer></script>
